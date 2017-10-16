@@ -5,6 +5,7 @@ public class MediaSettings : MonoBehaviour {
     private VideoPlayer videoPlayer;
     private AudioSource audioSource;
     private new Camera camera;
+    public bool isPlaying;
 
     public string url;
     [Range(0f, 100f)]
@@ -23,6 +24,15 @@ public class MediaSettings : MonoBehaviour {
         if (Input.GetButtonDown("Jump")) {
             this.videoPlayer.Play();
         }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            this.videoPlayer.Pause();
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            this.videoPlayer.Stop();
+        }
+        isPlaying = (videoPlayer.frame == (int)videoPlayer.frameCount);
 	}
 
     private void InitialConfiguration()
@@ -43,10 +53,7 @@ public class MediaSettings : MonoBehaviour {
         this.videoPlayer.isLooping = false;
         this.videoPlayer.url = this.url;
     }
-    void OnMovieFinished(VideoPlayer player)
-    {
-        Debug.Log("Event for movie end called");
-    }
+    
     private void SetMediaSize()
     {
         this.camera.rect = rect;
