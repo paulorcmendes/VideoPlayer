@@ -7,7 +7,7 @@ public class VideoPlayerScript : MonoBehaviour
     void Start()
     {
    
-        GameObject camera = GameObject.Find("Main Camera");
+
 
         var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
         var audio = videoPlayer.GetTargetAudioSource(0);
