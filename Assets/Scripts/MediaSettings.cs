@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.Video;
 
+public enum VIDEO_STATE {PLAYING, STOPED}
+
 public class MediaSettings : MonoBehaviour {
     private VideoPlayer videoPlayer;
     private AudioSource audioSource;
     private new Camera camera;
+
     public bool isPlaying;
+    public int frameCount;
+    public int frame;
 
     public string url;
     [Range(0f, 100f)]
@@ -33,6 +38,8 @@ public class MediaSettings : MonoBehaviour {
             this.videoPlayer.Stop();
         }
         isPlaying = (videoPlayer.frame == (int)videoPlayer.frameCount);
+        frameCount = (int)videoPlayer.frameCount;
+        frame = (int)videoPlayer.frame;
 	}
 
     private void InitialConfiguration()

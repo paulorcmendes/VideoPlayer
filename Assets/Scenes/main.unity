@@ -136,6 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaying: 0
+  frameCount: 0
+  frame: 0
   url: Assets/Video/space.mp4
   volume: 100
   rect:
@@ -185,14 +187,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaying: 0
+  frameCount: 0
+  frame: 0
   url: Assets/Video/run.mp4
   volume: 100
   rect:
     serializedVersion: 2
-    x: 0
+    x: 0.5
     y: 0
-    width: 1
-    height: 1
+    width: 0.5
+    height: 0.5
 --- !u!4 &94330517
 Transform:
   m_ObjectHideFlags: 0
@@ -323,6 +327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaying: 0
+  frameCount: 0
+  frame: 0
   url: Assets/Video/starwars.mp4
   volume: 0
   rect:
@@ -372,6 +378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaying: 0
+  frameCount: 0
+  frame: 0
   url: Assets/Video/halifax.mp4
   volume: 0
   rect:
