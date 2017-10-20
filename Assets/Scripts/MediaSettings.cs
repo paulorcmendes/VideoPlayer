@@ -24,7 +24,7 @@ public class MediaSettings : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         InitialConfiguration();
         SetMediaSize();
         SetMediaVolume();
