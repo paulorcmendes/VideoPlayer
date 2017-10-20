@@ -22,30 +22,30 @@ public class MediaSettings : MonoBehaviour {
         InitialConfiguration();
         SetMediaSize();
         SetMediaVolume();
-        videoPlayer.loopPointReached += VideoPlayer_loopPointReached;
+        videoPlayer.loopPointReached += Stopped;
+
         Play();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Jump")) { // space
-            Play();
-        }
-        if (Input.GetButtonDown("Fire1")) //left ctrl
-        {
-            this.videoPlayer.Pause();
-        }
-        if (Input.GetButtonDown("Fire2")) //left alt
-        {
-            this.videoPlayer.Stop();
-        }
-
+        //if (Input.GetButtonDown("Jump")) { // space
+        //    Play();
+        //}
+        //if (Input.GetButtonDown("Fire1")) //left ctrl
+        //{
+        //    this.videoPlayer.Pause();
+        //}
+        //if (Input.GetButtonDown("Fire2")) //left alt
+        //{
+        //    this.videoPlayer.Stop();
+        //}
         isPlaying = (videoPlayer.frame == (int)videoPlayer.frameCount);
         frameCount = (int)videoPlayer.frameCount;
         frame = (int)videoPlayer.frame;        
     }
 
-    private void VideoPlayer_loopPointReached(VideoPlayer source)
+    private void Stopped(VideoPlayer source)
     {
         Debug.Log(url + " cabou");
     }
