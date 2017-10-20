@@ -35,26 +35,26 @@ public class MediaSettings : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if (Input.GetButtonDown("Jump")) { // space
-        //    Play();
-        //}
+        if (Input.GetButtonDown("Jump")) {
+            Play();
+        }
         //if (Input.GetButtonDown("Fire1")) //left ctrl
         //{
         //    this.videoPlayer.Pause();
         //}
-        //if (Input.GetButtonDown("Fire2")) //left alt
-        //{
-        //    this.videoPlayer.Stop();
-        //}
+        if (Input.GetButtonDown("Fire2")) //left alt
+        {
+            this.Stop();
+        }
         isPlaying = (videoPlayer.frame == (int)videoPlayer.frameCount);
         frameCount = (int)videoPlayer.frameCount;
         frame = (int)videoPlayer.frame;        
     }
 
     private void Stopped(VideoPlayer source)
-    {
-        Debug.Log(url + " cabou");
-        OnStop();
+    {        
+        if(OnStop!=null)OnStop();
+        Debug.Log(url + " stopou");
     }
 
     private void InitialConfiguration()
@@ -85,13 +85,19 @@ public class MediaSettings : MonoBehaviour {
         this.audioSource.volume = volume / 100;
     }
     
-    private void Play()
+    public void Play()
     {        
         if(videoPlayer.isPlaying) videoPlayer.Stop();
         videoPlayer.Play();
 
         Debug.Log(url+" comecou");
-        OnBegin();
+        if (OnBegin != null) OnBegin();
+    }
+
+    public void Stop() {
+        videoPlayer.Stop();
+        Debug.Log(url + " stopou");
+        if (OnStop != null) OnStop();
     }
 
     
