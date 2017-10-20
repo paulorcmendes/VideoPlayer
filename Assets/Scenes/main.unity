@@ -123,7 +123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &56183678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   frameCount: 0
   frame: 0
   url: Assets/Video/space.mp4
-  volume: 100
+  volume: 0
   rect:
     serializedVersion: 2
     x: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   frameCount: 0
   frame: 0
   url: Assets/Video/run.mp4
-  volume: 100
+  volume: 0
   rect:
     serializedVersion: 2
     x: 0.5
@@ -314,7 +314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &887759796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,7 +365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1408168292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   frameCount: 0
   frame: 0
   url: Assets/Video/halifax.mp4
-  volume: 0
+  volume: 100
   rect:
     serializedVersion: 2
     x: 0

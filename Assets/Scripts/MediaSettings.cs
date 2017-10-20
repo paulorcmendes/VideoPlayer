@@ -21,26 +21,34 @@ public class MediaSettings : MonoBehaviour {
     void Start () {
         InitialConfiguration();
         SetMediaSize();
-        SetMediaVolume();        
+        SetMediaVolume();
+        videoPlayer.loopPointReached += VideoPlayer_loopPointReached;
+        Play();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Jump")) {
-            this.videoPlayer.Play();
+        if (Input.GetButtonDown("Jump")) { // space
+            Play();
         }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1")) //left ctrl
         {
             this.videoPlayer.Pause();
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2")) //left alt
         {
             this.videoPlayer.Stop();
         }
+
         isPlaying = (videoPlayer.frame == (int)videoPlayer.frameCount);
         frameCount = (int)videoPlayer.frameCount;
-        frame = (int)videoPlayer.frame;
-	}
+        frame = (int)videoPlayer.frame;        
+    }
+
+    private void VideoPlayer_loopPointReached(VideoPlayer source)
+    {
+        Debug.Log(url + " cabou");
+    }
 
     private void InitialConfiguration()
     {
@@ -58,7 +66,7 @@ public class MediaSettings : MonoBehaviour {
 
 
         this.videoPlayer.isLooping = false;
-        this.videoPlayer.url = this.url;
+        this.videoPlayer.url = this.url;        
     }
     
     private void SetMediaSize()
@@ -69,4 +77,14 @@ public class MediaSettings : MonoBehaviour {
     {
         this.audioSource.volume = volume / 100;
     }
+    
+    private void Play()
+    {        
+        if(videoPlayer.isPlaying) videoPlayer.Stop();
+        videoPlayer.Play();
+
+        Debug.Log(url+" comecou");
+    }
+
+    
 }
