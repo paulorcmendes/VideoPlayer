@@ -17,6 +17,12 @@ public class MediaSettings : MonoBehaviour {
     public float volume;
     public Rect rect;
 
+    public delegate void MyHandler();
+
+    public event MyHandler OnBegin;
+    public event MyHandler OnStop;
+
+
     // Use this for initialization
     void Start () {
         InitialConfiguration();
@@ -48,6 +54,7 @@ public class MediaSettings : MonoBehaviour {
     private void Stopped(VideoPlayer source)
     {
         Debug.Log(url + " cabou");
+        OnStop();
     }
 
     private void InitialConfiguration()
@@ -84,6 +91,7 @@ public class MediaSettings : MonoBehaviour {
         videoPlayer.Play();
 
         Debug.Log(url+" comecou");
+        OnBegin();
     }
 
     
