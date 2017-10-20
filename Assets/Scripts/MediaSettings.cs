@@ -8,9 +8,9 @@ public class MediaSettings : MonoBehaviour {
     private AudioSource audioSource;
     private new Camera camera;
 
-    public bool isPlaying;
-    public int frameCount;
-    public int frame;
+    //public bool isPlaying;
+    //public int frameCount;
+    //public int frame;
 
     public string url;
     [Range(0f, 100f)]
@@ -29,33 +29,16 @@ public class MediaSettings : MonoBehaviour {
         SetMediaSize();
         SetMediaVolume();
         videoPlayer.loopPointReached += Stopped;
-
-        Play();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Jump")) {
-            Play();
-        }
-        //if (Input.GetButtonDown("Fire1")) //left ctrl
-        //{
-        //    this.videoPlayer.Pause();
-        //}
-        if (Input.GetButtonDown("Fire2")) //left alt
-        {
-            this.Stop();
-        }
-        isPlaying = (videoPlayer.frame == (int)videoPlayer.frameCount);
-        frameCount = (int)videoPlayer.frameCount;
-        frame = (int)videoPlayer.frame;        
+        //isPlaying = (videoPlayer.frame == (int)videoPlayer.frameCount);
+        //frameCount = (int)videoPlayer.frameCount;
+        //frame = (int)videoPlayer.frame;        
     }
 
-    private void Stopped(VideoPlayer source)
-    {        
-        if(OnStop!=null)OnStop();
-        Debug.Log(url + " stopou");
-    }
+    
 
     private void InitialConfiguration()
     {
@@ -63,6 +46,7 @@ public class MediaSettings : MonoBehaviour {
         this.videoPlayer = this.gameObject.AddComponent<VideoPlayer>();
         this.videoPlayer.playOnAwake = false;
         this.camera = this.gameObject.AddComponent<Camera>();
+        this.camera.enabled = false;
 
         this.videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         this.videoPlayer.source = VideoSource.Url;
@@ -70,7 +54,7 @@ public class MediaSettings : MonoBehaviour {
         this.videoPlayer.renderMode = VideoRenderMode.CameraFarPlane;
         this.videoPlayer.aspectRatio = VideoAspectRatio.Stretch;
         this.videoPlayer.targetCamera = this.camera;
-
+        
 
         this.videoPlayer.isLooping = false;
         this.videoPlayer.url = this.url;        
@@ -87,18 +71,27 @@ public class MediaSettings : MonoBehaviour {
     
     public void Play()
     {        
-        if(videoPlayer.isPlaying) videoPlayer.Stop();
+        if(videoPlayer.isPlaying) videoPlayer.Stop();        
         videoPlayer.Play();
+        this.camera.enabled = true;
+        Debug.Log(url + " comecou");       
 
-        Debug.Log(url+" comecou");
         if (OnBegin != null) OnBegin();
     }
 
     public void Stop() {
         videoPlayer.Stop();
+        this.camera.enabled = false;
         Debug.Log(url + " stopou");
         if (OnStop != null) OnStop();
     }
 
-    
+    private void Stopped(VideoPlayer source)
+    {
+        if (OnStop != null) OnStop();
+        Debug.Log(url + " stopou");
+        this.camera.enabled = false;
+    }
+
+
 }
