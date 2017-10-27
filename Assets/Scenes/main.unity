@@ -156,6 +156,21 @@ Prefab:
       propertyPath: url
       value: Assets/Video/video3.mp4
       objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.width
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 111c96120015fe7419a4975468872763, type: 2}
   m_IsPrefabParent: 0
@@ -301,6 +316,16 @@ Prefab:
         type: 2}
       propertyPath: url
       value: Assets/Video/video2.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.width
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.height
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 111c96120015fe7419a4975468872763, type: 2}
@@ -496,6 +521,26 @@ Prefab:
         type: 2}
       propertyPath: url
       value: Assets/Video/video4.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.width
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 111c96120015fe7419a4975468872763, type: 2}
@@ -747,6 +792,21 @@ Prefab:
     - target: {fileID: 1572852062532858, guid: 111c96120015fe7419a4975468872763, type: 2}
       propertyPath: m_Name
       value: Media1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.width
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287488935853922, guid: 111c96120015fe7419a4975468872763,
+        type: 2}
+      propertyPath: rect.x
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 111c96120015fe7419a4975468872763, type: 2}

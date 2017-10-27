@@ -9,13 +9,11 @@ public class MediaControllerScript : MonoBehaviour {
 
     public event MyHandler Port;
 	// Use this for initialization
-	void Start () {
-        
-        OnEndStart(medias[0], medias[1]);
-        OnEndStart(medias[1], medias[2]);
-        OnEndStart(medias[2], medias[3]);
+	void Start () {        
+        OnEndStop(medias[1], medias[3]);
         OnEndStart(medias[3], medias[0]);
-        OnPort(medias[0]);
+        OnPort(medias[1]);
+        //OnBeginStart(medias[1], medias[3]);
     }
 	
 	// Update is called once per frame
@@ -24,7 +22,7 @@ public class MediaControllerScript : MonoBehaviour {
 	}
 
     private void Play() {
-        this.Port();
+        if(Port != null)  this.Port();
     }
 
     private void OnPort(GameObject media)

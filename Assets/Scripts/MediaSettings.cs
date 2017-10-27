@@ -28,7 +28,7 @@ public class MediaSettings : MonoBehaviour {
         InitialConfiguration();
         SetMediaSize();
         SetMediaVolume();
-        videoPlayer.loopPointReached += Stopped;
+        videoPlayer.loopPointReached += Ended;
     }
 	
 	// Update is called once per frame
@@ -86,7 +86,7 @@ public class MediaSettings : MonoBehaviour {
         if (OnEnd != null) OnEnd();
     }
 
-    private void Stopped(VideoPlayer source)
+    private void Ended(VideoPlayer source)
     {
         if (OnEnd != null) OnEnd();
         Debug.Log(url + " ended");
