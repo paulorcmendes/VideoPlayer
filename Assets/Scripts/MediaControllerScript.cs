@@ -5,15 +5,16 @@ using UnityEngine;
 public class MediaControllerScript : MonoBehaviour {
 
     public GameObject[] medias;
+
     public delegate void MyHandler();
 
     public event MyHandler Port;
 	// Use this for initialization
 	void Start () {        
-        OnEndStop(medias[1], medias[3]);
-        OnEndStart(medias[3], medias[0]);
-        OnPort(medias[1]);
-        //OnBeginStart(medias[1], medias[3]);
+        ConnectorBase.OnEndStop(medias[1], medias[3]);
+        ConnectorBase.OnEndStart(medias[3], medias[0]);
+        OnEntry(medias[1]);
+        ConnectorBase.OnBeginStart(medias[1], medias[3]);
     }
 	
 	// Update is called once per frame
@@ -25,22 +26,8 @@ public class MediaControllerScript : MonoBehaviour {
         if(Port != null)  this.Port();
     }
 
-    private void OnPort(GameObject media)
+    private void OnEntry(GameObject media)
     {
         this.Port += media.GetComponent<MediaSettings>().Play;
-    }
-    private void OnEndStart(GameObject mediaCondition, GameObject mediaAction) {
-        mediaCondition.GetComponent<MediaSettings>().OnEnd += mediaAction.GetComponent<MediaSettings>().Play;
-    }
-    private void OnEndStop(GameObject mediaCondition, GameObject mediaAction) {
-        mediaCondition.GetComponent<MediaSettings>().OnEnd += mediaAction.GetComponent<MediaSettings>().Stop;
-    }
-    private void OnBeginStart(GameObject mediaCondition, GameObject mediaAction)
-    {
-        mediaCondition.GetComponent<MediaSettings>().OnBegin += mediaAction.GetComponent<MediaSettings>().Play;
-    }
-    private void OnBeginStop(GameObject mediaCondition, GameObject mediaAction)
-    {
-        mediaCondition.GetComponent<MediaSettings>().OnBegin += mediaAction.GetComponent<MediaSettings>().Stop;
     }
 }
