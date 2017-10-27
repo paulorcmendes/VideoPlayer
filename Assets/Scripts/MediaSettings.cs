@@ -20,7 +20,7 @@ public class MediaSettings : MonoBehaviour {
     public delegate void MyHandler();
 
     public event MyHandler OnBegin;
-    public event MyHandler OnStop;
+    public event MyHandler OnEnd;
 
 
     // Use this for initialization
@@ -74,7 +74,7 @@ public class MediaSettings : MonoBehaviour {
         if(videoPlayer.isPlaying) videoPlayer.Stop();        
         videoPlayer.Play();
         this.camera.enabled = true;
-        Debug.Log(url + " comecou");       
+        Debug.Log(url + " begun");       
 
         if (OnBegin != null) OnBegin();
     }
@@ -83,13 +83,13 @@ public class MediaSettings : MonoBehaviour {
         videoPlayer.Stop();
         this.camera.enabled = false;
         Debug.Log(url + " stopou");
-        if (OnStop != null) OnStop();
+        if (OnEnd != null) OnEnd();
     }
 
     private void Stopped(VideoPlayer source)
     {
-        if (OnStop != null) OnStop();
-        Debug.Log(url + " stopou");
+        if (OnEnd != null) OnEnd();
+        Debug.Log(url + " ended");
         this.camera.enabled = false;
     }
 
